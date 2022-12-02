@@ -73,3 +73,24 @@ int[] ShuffleArray(int[] array)
     }
     return numbersMixed;
 }
+
+// AddToArray
+int[] AddToArray(int[] array, int newNumber, int newPosIndex = -1)
+{
+    int i = 0;
+    int[] arrayNew = new int[array.Length + 1];
+
+    if (newPosIndex == -1)
+        newPosIndex = arrayNew.Length - 1;
+
+    for (i = 0; i < arrayNew.Length; i++)
+    {
+        if (i == newPosIndex)
+            arrayNew[i] = newNumber;
+        else if (i > newPosIndex)
+            arrayNew[i] = array[i - 1];
+        else
+            arrayNew[i] = array[i];
+    }
+    return arrayNew;
+}
